@@ -19,4 +19,20 @@ public class Service {
         this.author = service.author;
         this.comment = service.comment;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Service service = (Service) o;
+
+        return id == service.id;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
 }

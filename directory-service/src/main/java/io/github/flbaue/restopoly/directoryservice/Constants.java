@@ -16,5 +16,5 @@ public class Constants {
     public static final String SERVICE_PATH = "/services/:id";
     public static final String SERVICE_PATH_SLASH = "/services/:id/";
 
-
+    public static final String PING_PATH = "/ping";
 }
