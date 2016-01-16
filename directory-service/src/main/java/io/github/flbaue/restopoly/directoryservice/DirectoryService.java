@@ -2,6 +2,7 @@ package io.github.flbaue.restopoly.directoryservice;
 
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -31,7 +32,11 @@ public class DirectoryService {
     private Timer cleanupThread;
 
     public DirectoryService(String[] args) {
-
+        for (String arg : args) {
+            if (arg.equals("--pretty")) {
+                gson = new GsonBuilder().setPrettyPrinting().create();
+            }
+        }
     }
 
     public static void main(String[] args) {
