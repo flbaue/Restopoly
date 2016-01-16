@@ -26,7 +26,6 @@ public class DirectoryService {
 
     private static final Logger log = Logger.getLogger(DirectoryService.class.getName());
 
-
     private ServiceRepository repository = new ServiceRepository();
     private Gson gson = new Gson();
     private Timer cleanupThread;
@@ -168,7 +167,7 @@ public class DirectoryService {
             HttpResponse<String> response = null;
             try {
                 response = Unirest.get(uri).asString();
-            } catch (UnirestException e) {
+            } catch (Exception e) {
                 log.log(Level.SEVERE, "Cannot ping service", e);
             }
             if (response == null || response.getStatus() != 200 || !response.getBody().equalsIgnoreCase("pong")) {
